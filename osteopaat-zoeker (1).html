@@ -584,6 +584,27 @@
   .model-card:nth-child(3) { animation-delay: 0.15s; }
   .model-card:nth-child(4) { animation-delay: 0.2s; }
   .model-card:nth-child(5) { animation-delay: 0.25s; }
+
+  /* ILLUSTRATION */
+  .card-inner {
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 0;
+  }
+  .card-content { min-width: 0; }
+  .card-illustration {
+    width: 140px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 12px 12px 0;
+    opacity: 0.9;
+  }
+  @media (max-width: 600px) {
+    .card-inner { grid-template-columns: 1fr; }
+    .card-illustration { width: 100%; height: 120px; padding: 0 20px 16px; }
+  }
 </style>
 </head>
 <body>
@@ -667,35 +688,140 @@ const MODELS = [
     cls: 'model-bio',
     label: 'Model 1',
     title: 'Biomechanisch model',
-    icon: `<svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`
+    icon: `<svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`,
+    illustration: `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+      <ellipse cx="110" cy="130" rx="72" ry="100" fill="#6B8C7A" opacity="0.08"/>
+      <g stroke="#3D5447" stroke-width="1.2" fill="#EDF2EE">
+        <rect x="90" y="18" width="40" height="16" rx="4"/>
+        <rect x="88" y="40" width="44" height="16" rx="4"/>
+        <rect x="86" y="62" width="48" height="16" rx="4"/>
+        <rect x="84" y="84" width="52" height="18" rx="4"/>
+        <rect x="82" y="108" width="56" height="18" rx="4"/>
+        <rect x="80" y="132" width="60" height="18" rx="4"/>
+        <rect x="82" y="156" width="56" height="18" rx="4"/>
+        <rect x="84" y="180" width="52" height="18" rx="4"/>
+      </g>
+      <line x1="110" y1="18" x2="110" y2="198" stroke="#6B8C7A" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+      <g fill="#6B8C7A" opacity="0.45">
+        <ellipse cx="110" cy="36" rx="16" ry="3"/>
+        <ellipse cx="110" cy="58" rx="18" ry="3"/>
+        <ellipse cx="110" cy="80" rx="20" ry="3"/>
+        <ellipse cx="110" cy="104" rx="22" ry="3"/>
+        <ellipse cx="110" cy="128" rx="24" ry="3"/>
+        <ellipse cx="110" cy="152" rx="22" ry="3"/>
+        <ellipse cx="110" cy="176" rx="20" ry="3"/>
+      </g>
+      <path d="M72 202 Q110 225 148 202" stroke="#3D5447" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M72 202 Q65 215 75 225 Q90 232 110 228 Q130 232 145 225 Q155 215 148 202" stroke="#3D5447" stroke-width="1.2" fill="#EDF2EE"/>
+      <g stroke="#6B8C7A" stroke-width="0.8" opacity="0.55">
+        <line x1="58" y1="60" x2="78" y2="70"/><line x1="58" y1="90" x2="78" y2="96"/>
+        <line x1="58" y1="120" x2="78" y2="124"/><line x1="162" y1="60" x2="142" y2="70"/>
+        <line x1="162" y1="90" x2="142" y2="96"/><line x1="162" y1="120" x2="142" y2="124"/>
+      </g>
+    </svg>`
   },
   {
     key: 'neurologisch',
     cls: 'model-neuro',
     label: 'Model 2',
     title: 'Neurologisch model',
-    icon: `<svg viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-1.14M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24A2.5 2.5 0 0 0 14.5 2z"/></svg>`
+    icon: `<svg viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-1.14M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24A2.5 2.5 0 0 0 14.5 2z"/></svg>`,
+    illustration: `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+      <circle cx="110" cy="80" r="65" fill="#4A6B8A" opacity="0.07"/>
+      <path d="M110 25 C85 25 62 38 55 58 C48 76 52 95 48 108 C44 122 38 135 44 148 C50 162 65 168 78 165 C88 170 100 175 110 175 C120 175 132 170 142 165 C155 168 170 162 176 148 C182 135 176 122 172 108 C168 95 172 76 165 58 C158 38 135 25 110 25Z" stroke="#185FA5" stroke-width="1.4" fill="#E8EFF5" opacity="0.9"/>
+      <path d="M80 55 Q90 45 100 55 Q110 65 120 55 Q130 45 140 55" stroke="#4A6B8A" stroke-width="1" fill="none" opacity="0.65"/>
+      <path d="M65 85 Q80 72 95 82 Q110 92 125 82 Q140 72 155 85" stroke="#4A6B8A" stroke-width="1" fill="none" opacity="0.65"/>
+      <path d="M60 115 Q78 100 95 112 Q110 124 125 112 Q142 100 160 115" stroke="#4A6B8A" stroke-width="1" fill="none" opacity="0.65"/>
+      <path d="M65 143 Q82 130 98 140 Q110 148 122 140 Q138 130 155 143" stroke="#4A6B8A" stroke-width="1" fill="none" opacity="0.65"/>
+      <line x1="110" y1="175" x2="110" y2="245" stroke="#4A6B8A" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+      <g stroke="#185FA5" stroke-width="0.9" opacity="0.65" stroke-linecap="round">
+        <line x1="110" y1="188" x2="85" y2="195"/><line x1="110" y1="188" x2="135" y2="195"/>
+        <line x1="110" y1="200" x2="82" y2="210"/><line x1="110" y1="200" x2="138" y2="210"/>
+        <line x1="110" y1="212" x2="80" y2="224"/><line x1="110" y1="212" x2="140" y2="224"/>
+        <line x1="110" y1="224" x2="78" y2="238"/><line x1="110" y1="224" x2="142" y2="238"/>
+      </g>
+      <g fill="#4A6B8A" opacity="0.75">
+        <circle cx="85" cy="195" r="3"/><circle cx="135" cy="195" r="3"/>
+        <circle cx="82" cy="210" r="3"/><circle cx="138" cy="210" r="3"/>
+        <circle cx="80" cy="224" r="3"/><circle cx="140" cy="224" r="3"/>
+      </g>
+    </svg>`
   },
   {
     key: 'respiratoir',
     cls: 'model-resp',
     label: 'Model 3',
     title: 'Respiratoir-circulatoir model',
-    icon: `<svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`
+    icon: `<svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`,
+    illustration: `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+      <ellipse cx="110" cy="130" rx="75" ry="95" fill="#C4895A" opacity="0.07"/>
+      <rect x="103" y="18" width="14" height="40" rx="7" stroke="#BA7517" stroke-width="1.2" fill="#FAF0E6"/>
+      <path d="M103 55 Q85 65 75 80" stroke="#BA7517" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M117 55 Q135 65 145 80" stroke="#BA7517" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M75 80 Q45 95 42 130 Q40 162 55 178 Q68 192 85 188 Q100 184 103 165 L103 80 Z" stroke="#BA7517" stroke-width="1.3" fill="#FAF0E6"/>
+      <path d="M145 80 Q175 95 178 130 Q180 162 165 178 Q152 192 135 188 Q120 184 117 165 L117 80 Z" stroke="#BA7517" stroke-width="1.3" fill="#FAF0E6"/>
+      <g stroke="#C4895A" stroke-width="0.7" fill="none" opacity="0.55">
+        <path d="M65 100 Q72 110 68 122"/><path d="M58 115 Q68 125 64 140"/>
+        <path d="M55 135 Q65 145 62 158"/><path d="M155 100 Q148 110 152 122"/>
+        <path d="M162 115 Q152 125 156 140"/><path d="M165 135 Q155 145 158 158"/>
+      </g>
+      <path d="M110 120 C110 120 95 108 90 115 C85 122 88 132 110 148 C132 132 135 122 130 115 C125 108 110 120 110 120Z" stroke="#993C1D" stroke-width="1.2" fill="#F5EBE4"/>
+      <path d="M40 195 Q75 210 110 205 Q145 210 180 195" stroke="#BA7517" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <line x1="110" y1="115" x2="110" y2="90" stroke="#993C1D" stroke-width="2" opacity="0.6"/>
+    </svg>`
   },
   {
     key: 'metabool',
     cls: 'model-meta',
     label: 'Model 4',
     title: 'Metabool-energetisch model',
-    icon: `<svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`
+    icon: `<svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+    illustration: `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+      <ellipse cx="110" cy="140" rx="70" ry="90" fill="#8B4A2B" opacity="0.07"/>
+      <path d="M80 50 Q65 75 62 110 Q60 145 65 175 Q72 200 85 210 L110 215 L135 210 Q148 200 155 175 Q160 145 158 110 Q155 75 140 50 Q125 35 110 32 Q95 35 80 50Z" stroke="#8B4A2B" stroke-width="1.2" fill="#F5EBE4" opacity="0.9"/>
+      <path d="M110 105 Q138 100 145 118 Q148 132 138 140 Q125 148 110 142 Z" stroke="#8B4A2B" stroke-width="1" fill="#C4895A" opacity="0.65"/>
+      <path d="M88 108 Q80 115 82 128 Q84 140 95 142 Q108 144 110 135 Q112 125 105 112 Z" stroke="#8B4A2B" stroke-width="1" fill="#FAF0E6" opacity="0.9"/>
+      <path d="M75 155 Q85 148 95 158 Q105 168 115 158 Q125 148 135 158 Q145 168 148 180 Q145 195 130 198 Q110 202 90 198 Q75 194 72 180 Q70 168 75 155Z" stroke="#8B4A2B" stroke-width="1" fill="none" opacity="0.6"/>
+      <path d="M82 168 Q92 162 100 170 Q108 178 118 170 Q128 162 138 170" stroke="#8B4A2B" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <g stroke="#BA7517" stroke-width="1.5" fill="none" opacity="0.65" stroke-linecap="round">
+        <path d="M44 95 Q38 110 44 125"/><path d="M44 125 L40 118 M44 125 L50 119"/>
+        <path d="M176 95 Q182 110 176 125"/><path d="M176 125 L172 118 M176 125 L180 119"/>
+      </g>
+      <g stroke="#8B4A2B" stroke-width="0.8" fill="none" opacity="0.45">
+        <ellipse cx="55" cy="145" rx="8" ry="5" transform="rotate(-30 55 145)"/>
+        <ellipse cx="165" cy="145" rx="8" ry="5" transform="rotate(30 165 145)"/>
+      </g>
+      <path d="M155 52 Q168 58 165 72 Q178 62 172 48 Q165 36 153 40 Q160 44 155 52Z" fill="#C4895A" opacity="0.55"/>
+    </svg>`
   },
   {
     key: 'biopsychosociaal',
     cls: 'model-psych',
     label: 'Model 5',
     title: 'Gedrags- / biopsychosociaal model',
-    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`
+    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,
+    illustration: `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+      <circle cx="110" cy="110" r="85" fill="#6B4A72" opacity="0.07"/>
+      <circle cx="110" cy="52" r="28" stroke="#6B4A72" stroke-width="1.3" fill="#F0EBF2"/>
+      <path d="M100 50 Q110 58 120 50" stroke="#6B4A72" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <circle cx="103" cy="46" r="2" fill="#6B4A72" opacity="0.45"/>
+      <circle cx="117" cy="46" r="2" fill="#6B4A72" opacity="0.45"/>
+      <path d="M88 80 Q75 95 72 125 Q70 150 78 168 L110 172 L142 168 Q150 150 148 125 Q145 95 132 80 Q122 72 110 70 Q98 72 88 80Z" stroke="#6B4A72" stroke-width="1.2" fill="#F0EBF2" opacity="0.85"/>
+      <path d="M110 112 C110 112 99 103 95 109 C91 115 93 123 110 134 C127 123 129 115 125 109 C121 103 110 112 110 112Z" stroke="#6B4A72" stroke-width="1" fill="#D4A0DC" opacity="0.65"/>
+      <g stroke="#6B4A72" stroke-width="1" opacity="0.4" stroke-dasharray="3,3">
+        <line x1="82" y1="52" x2="42" y2="38"/><line x1="138" y1="52" x2="178" y2="38"/>
+        <line x1="82" y1="100" x2="38" y2="110"/><line x1="138" y1="100" x2="182" y2="110"/>
+      </g>
+      <g stroke="#6B4A72" stroke-width="1" fill="#F0EBF2" opacity="0.65">
+        <circle cx="42" cy="32" r="10"/><path d="M34 48 Q42 55 50 48"/>
+        <circle cx="178" cy="32" r="10"/><path d="M170 48 Q178 55 186 48"/>
+        <circle cx="38" cy="104" r="10"/><path d="M30 120 Q38 127 46 120"/>
+        <circle cx="182" cy="104" r="10"/><path d="M174 120 Q182 127 190 120"/>
+      </g>
+      <line x1="90" y1="172" x2="85" y2="235" stroke="#6B4A72" stroke-width="1" opacity="0.25" stroke-linecap="round"/>
+      <line x1="130" y1="172" x2="135" y2="235" stroke="#6B4A72" stroke-width="1" opacity="0.25" stroke-linecap="round"/>
+      <line x1="60" y1="235" x2="160" y2="235" stroke="#6B4A72" stroke-width="1" opacity="0.15"/>
+    </svg>`
   }
 ];
 
@@ -870,19 +996,24 @@ function renderResults(query, data) {
           <div class="card-title">${m.title}</div>
         </div>
       </div>
-      <div class="card-body">
-        <div class="section-block">
-          <div class="section-label">Mogelijke oorzaken</div>
-          <p class="section-text">${d.oorzaken || '—'}</p>
+      <div class="card-inner">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="section-block">
+              <div class="section-label">Mogelijke oorzaken</div>
+              <p class="section-text">${d.oorzaken || '—'}</p>
+            </div>
+            <div class="section-block">
+              <div class="section-label">Aandachtspunten onderzoek</div>
+              <p class="section-text">${d.aandachtspunten || '—'}</p>
+            </div>
+            ${tagsHtml ? `<div class="section-block">
+              <div class="section-label">Structuren & gebieden</div>
+              <div class="tags-row">${tagsHtml}</div>
+            </div>` : ''}
+          </div>
         </div>
-        <div class="section-block">
-          <div class="section-label">Aandachtspunten onderzoek</div>
-          <p class="section-text">${d.aandachtspunten || '—'}</p>
-        </div>
-        ${tagsHtml ? `<div class="section-block">
-          <div class="section-label">Structuren & gebieden</div>
-          <div class="tags-row">${tagsHtml}</div>
-        </div>` : ''}
+        <div class="card-illustration">${m.illustration || ''}</div>
       </div>
     `;
     grid.appendChild(card);
